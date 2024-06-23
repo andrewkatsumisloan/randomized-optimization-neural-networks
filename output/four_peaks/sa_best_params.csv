@@ -1,0 +1,8 @@
+temperature,decay,fitness
+0.1,<class 'mlrose_hiive.algorithms.decay.exp_decay.ExpDecay'>,37.0
+10.0,<class 'mlrose_hiive.algorithms.decay.exp_decay.ExpDecay'>,90.0
+0.1,<class 'mlrose_hiive.algorithms.decay.exp_decay.ExpDecay'>,29.0
+10.0,<class 'mlrose_hiive.algorithms.decay.exp_decay.ExpDecay'>,16.0
+25.0,<class 'mlrose_hiive.algorithms.decay.exp_decay.ExpDecay'>,15.0
+0.1,<class 'mlrose_hiive.algorithms.decay.exp_decay.ExpDecay'>,16.0
+0.1,<class 'mlrose_hiive.algorithms.decay.exp_decay.ExpDecay'>,15.0

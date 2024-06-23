@@ -1,0 +1,2 @@
+,Iteration,Fitness,FEvals,Time,State,Temperature,max_iters
+0,0,5.0,0,0.00018725008703768253,"[np.int64(5), np.int64(3), np.int64(4), np.int64(0), np.int64(7), np.int64(1), np.int64(3), np.int64(5)]","(ExpDecay(init_temp=150, exp_const=0.15, min_temp=1e-10),)",1000
