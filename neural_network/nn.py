@@ -185,7 +185,7 @@ def simulated_annealing(
         # Implement exponential cool down schedule
         if cool_down_type == "exponential":
             temp = initial_temp * (cooling_rate**i)
-        else:  # linear cool down (original implementation)
+        else:
             temp *= cooling_rate
 
         losses.append(current_loss)
@@ -300,7 +300,6 @@ def genetic_algorithm(
     return nn.loss(X, y)
 
 
-# Modify run_neural_network function to include RHC
 def run_neural_network(file_path, hidden_size, optimization_method, run_name, **kwargs):
     X_train, X_test, y_train, y_test = load_data(file_path)
     input_size = X_train.shape[1]
@@ -414,24 +413,24 @@ file_path = "./dataset/diabetes_balanced.csv"
 
 # Simulated Annealing
 sa_params = [
-    # {
-    #     "hidden_size": 30,
-    #     "initial_temp": 150,
-    #     "cooling_rate": 0.99,
-    #     "max_iterations": 2000,
-    #     "min_temp": 1e-6,
-    #     "convergence_iterations": 150,
-    #     "convergence_threshold": 1e-8,
-    # },
-    # {
-    #     "hidden_size": 30,
-    #     "initial_temp": 500,
-    #     "cooling_rate": 0.995,
-    #     "max_iterations": 2000,
-    #     "min_temp": 1e-6,
-    #     "convergence_iterations": 100,
-    #     "convergence_threshold": 1e-8,
-    # },
+    {
+        "hidden_size": 30,
+        "initial_temp": 150,
+        "cooling_rate": 0.99,
+        "max_iterations": 2000,
+        "min_temp": 1e-6,
+        "convergence_iterations": 150,
+        "convergence_threshold": 1e-8,
+    },
+    {
+        "hidden_size": 30,
+        "initial_temp": 500,
+        "cooling_rate": 0.995,
+        "max_iterations": 2000,
+        "min_temp": 1e-6,
+        "convergence_iterations": 100,
+        "convergence_threshold": 1e-8,
+    },
     {
         "hidden_size": 30,
         "initial_temp": 1500,
@@ -447,39 +446,39 @@ compare_hyperparameters(file_path, "simulated_annealing", sa_params)
 
 # Genetic Algorithm
 ga_params = [
-    # {
-    #     "hidden_size": 30,
-    #     "population_size": 50,
-    #     "max_generations": 50,
-    #     "mutation_rate": 0.1,
-    #     "convergence_generations": 20,
-    #     "convergence_threshold": 1e-8,
-    # },
-    # {
-    #     "hidden_size": 30,
-    #     "population_size": 100,
-    #     "max_generations": 150,
-    #     "mutation_rate": 0.05,
-    #     "convergence_generations": 30,
-    #     "convergence_threshold": 1e-8,
-    # },
-    # {
-    #     "hidden_size": 30,
-    #     "population_size": 400,
-    #     "max_generations": 1500,
-    #     "mutation_rate": 0.25,
-    #     "convergence_generations": 125,
-    #     "convergence_threshold": 1e-6,
-    # },
+    {
+        "hidden_size": 30,
+        "population_size": 50,
+        "max_generations": 50,
+        "mutation_rate": 0.1,
+        "convergence_generations": 20,
+        "convergence_threshold": 1e-8,
+    },
+    {
+        "hidden_size": 30,
+        "population_size": 100,
+        "max_generations": 150,
+        "mutation_rate": 0.05,
+        "convergence_generations": 30,
+        "convergence_threshold": 1e-8,
+    },
+    {
+        "hidden_size": 30,
+        "population_size": 400,
+        "max_generations": 1500,
+        "mutation_rate": 0.25,
+        "convergence_generations": 125,
+        "convergence_threshold": 1e-6,
+    },
 ]
 compare_hyperparameters(file_path, "genetic_algorithm", ga_params)
 
 # Randomized Hill Climbing
 rhc_params = [
-    # {"hidden_size": 30, "step_size": 0.1, "iterations": 1000},
-    # {"hidden_size": 30, "step_size": 0.05, "iterations": 2000},
-    # {"hidden_size": 30, "step_size": 0.0125, "iterations": 12000},
+    {"hidden_size": 30, "step_size": 0.1, "iterations": 1000},
+    {"hidden_size": 30, "step_size": 0.05, "iterations": 2000},
+    {"hidden_size": 30, "step_size": 0.0125, "iterations": 12000},
 ]
-# compare_hyperparameters(file_path, "randomized_hill_climbing", rhc_params)
+compare_hyperparameters(file_path, "randomized_hill_climbing", rhc_params)
 
 print("All plots have been saved in the 'plots' directory.")
